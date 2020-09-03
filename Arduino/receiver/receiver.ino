@@ -59,7 +59,7 @@ void writeCommand(int cmd)
   //delay(5000);
   //digitalWrite(3, LOW);
  
-  /*
+  
   // preamble
   digitalWrite(irPin, LOW);
   delayTs(8);
@@ -72,7 +72,7 @@ void writeCommand(int cmd)
   } 
   
   digitalWrite(irPin, HIGH);
-  */
+  
   
 }
 
@@ -112,7 +112,8 @@ void setup() {
   // initialize digital pin LED_BUILTIN as an output.
   Serial.begin(BAUD); // open the serial port at 9600 bps:
    pinMode(LED_BUILTIN, OUTPUT);
-   
+   pinMode(irPin, OUTPUT);
+   digitalWrite(irPin, HIGH);
   initRFNano();
                           
 }
@@ -124,5 +125,7 @@ void loop() {
     Mirf.getData(&value);
     Serial.print("recg data: ");
     Serial.println(value);
+    //writeCommand(0xC4);
+    writeCommand(value);
   }
 }

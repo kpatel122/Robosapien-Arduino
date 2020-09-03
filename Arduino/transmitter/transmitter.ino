@@ -24,7 +24,7 @@ TTransmitterButton buttons[MAX_BUTTONS];
 void initButtons()
 {
   buttons[0].button = new ezButton(2);
-  buttons[0].valueToSend = 35;
+  buttons[0].valueToSend = 0xC7;
   
   buttons[1].button = new ezButton(3);
   buttons[1].valueToSend = 3;
